@@ -9,13 +9,16 @@ class DatabaseRepository @Inject constructor(
     val repository: PatientDAO
 ){
 
-    fun insertNewPatient(patient: PatientModel) {
-        repository.insertIntoPatients(patient)
+    fun insertNewPatient(patientModel: PatientModel) {
+        repository.insertIntoPatients(patientModel)
     }
 
     fun getPatientsList() : List<PatientModel> {
         return repository.getAllPatients()
     }
 
+    fun deletePatient(patientModel: PatientModel) {
+        repository.deletePatient(patientModel)
+    }
 
 }

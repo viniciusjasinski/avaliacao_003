@@ -18,12 +18,16 @@ class PatientViewModel @Inject constructor(
 
     fun insertPatient(patientModel: PatientModel) {
         repository.insertNewPatient(patientModel)
-        _patientList.value = repository.getPatientsList()
+        fetchAllPatientsList()
     }
 
     fun fetchAllPatientsList() {
         _patientList.value = repository.getPatientsList()
     }
 
+    fun deletePatient(patientModel: PatientModel) {
+        repository.deletePatient(patientModel)
+        fetchAllPatientsList()
+    }
 
 }
