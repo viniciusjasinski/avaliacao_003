@@ -1,6 +1,7 @@
 package com.example.avaliacao3crudroomhilt.database.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.avaliacao3crudroomhilt.model.PatientModel
@@ -13,5 +14,8 @@ interface PatientDAO {
 
     @Query("SELECT * FROM PatientModel")
     fun getAllPatients() : List<PatientModel>
+
+    @Delete
+    fun deletePatient(patientModel: PatientModel)
 
 }

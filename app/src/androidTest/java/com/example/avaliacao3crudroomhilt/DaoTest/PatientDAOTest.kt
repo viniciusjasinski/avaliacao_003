@@ -46,4 +46,14 @@ class PatientDAOTest {
         assertThat(getAllPatients).contains(patientExample)
     }
 
+    @Test
+    fun deleteDatabase_should_return_true() {
+        val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
+        dao.insertIntoPatients(patientExample)
+        dao.deletePatient(patientExample)
+        val getAllPatients = dao.getAllPatients()
+
+        assertThat(getAllPatients).doesNotContain(patientExample)
+    }
+
 }

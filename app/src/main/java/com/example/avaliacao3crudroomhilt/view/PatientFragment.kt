@@ -43,8 +43,6 @@ class PatientFragment : Fragment(R.layout.patient_fragment) {
 
         viewModel.fetchAllPatientsList()
 
-
-
     }
 
     fun getScreenEvents() {
