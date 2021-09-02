@@ -1,4 +1,4 @@
-package com.example.avaliacao3crudroomhilt
+package com.example.avaliacao3crudroomhilt.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.avaliacao3crudroomhilt.view_model.EspecialidadeViewModel
+import com.example.avaliacao3crudroomhilt.R
 
-class EspecialidadeFragment : Fragment() {
+class EspecialidadeFragment : Fragment(R.layout.especialidade_fragment) {
 
     companion object {
         fun newInstance() = EspecialidadeFragment()
@@ -15,17 +17,10 @@ class EspecialidadeFragment : Fragment() {
 
     private lateinit var viewModel: EspecialidadeViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.especialidade_fragment, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(EspecialidadeViewModel::class.java)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EspecialidadeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
