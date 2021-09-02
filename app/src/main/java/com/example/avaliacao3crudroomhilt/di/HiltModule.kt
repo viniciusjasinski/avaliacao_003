@@ -19,4 +19,7 @@ class HiltModule {
         return AppDatabase.getDatabase(context).patientDAO()
     }
 
+    @Provides
+    fun provideRepository(patientDAO: PatientDAO) : DatabaseRepository = DatabaseRepository(patientDAO)
+
 }
