@@ -21,4 +21,8 @@ class DatabaseRepository @Inject constructor(
         repository.deletePatient(patientModel)
     }
 
+    fun getSpecificPatient(patientId : Int) : PatientModel {
+        return repository.getPatient(patientId)
+    }
+
 }

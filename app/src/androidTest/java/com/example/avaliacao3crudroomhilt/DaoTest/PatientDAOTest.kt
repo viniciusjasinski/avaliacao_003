@@ -37,7 +37,7 @@ class PatientDAOTest {
     }
 
     @Test
-    fun insertDatabase_should_return_true() {
+    fun insertPatientDatabase_should_return_true() {
 
         val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
         dao.insertIntoPatients(patientExample)
@@ -47,13 +47,18 @@ class PatientDAOTest {
     }
 
     @Test
-    fun deleteDatabase_should_return_true() {
+    fun deletePatientDatabase_should_return_true() {
         val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
         dao.insertIntoPatients(patientExample)
         dao.deletePatient(patientExample)
         val getAllPatients = dao.getAllPatients()
 
         assertThat(getAllPatients).doesNotContain(patientExample)
+    }
+
+    @Test
+    fun editPatientDatabase_should_return_true() {
+
     }
 
 }

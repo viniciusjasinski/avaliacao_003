@@ -10,4 +10,8 @@
     <string name="dialog_cancel">Cancelar</string>
     <string name="dialog_edit_patient">Editar Paciente</string>
     <string name="dialog_edit_confirm">Salvar</string>
+    <string name="patient_id_hint">Id</string>
+    <string name="insert_patient_button">Inserir</string>
+    <string name="list_patients_button">Listar</string>
+    <string name="save_edit_button">Salvar</string>
 </resources>

@@ -18,4 +18,9 @@ interface PatientDAO {
     @Delete
     fun deletePatient(patientModel: PatientModel)
 
+    @Query("SELECT * FROM PatientModel WHERE patient_id = :patientId")
+    fun getPatient(patientId: Int) : PatientModel
+
+//    @
+
 }

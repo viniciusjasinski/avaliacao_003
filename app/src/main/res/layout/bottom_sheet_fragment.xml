@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PatientFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.BottomSheetFragment">
+
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPatientName"
+        android:id="@+id/textInputLayoutPatientIdEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
@@ -21,7 +21,30 @@
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPatientName"
+            android:id="@+id/editTextPatientIdEdit"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/patient_id_hint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPatientNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientIdEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeWidthFocused="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPatientNameEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/name_hint"/>
@@ -29,7 +52,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPatientAge"
+        android:id="@+id/textInputLayoutPatientAgeEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
@@ -37,83 +60,55 @@
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxStrokeWidthFocused="1dp">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editTextPatientAge"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/age_hint"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutSex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientAge"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientNameEdit"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPatientSex"
+            android:id="@+id/editTextPatientAgeEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/age_hint"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutSexEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientAgeEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeWidthFocused="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPatientSexEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/sex_hint"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayoutPatientButtons"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/buttonSaveEditPacient"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/save_edit_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSex">
-
-        <Button
-            android:id="@+id/buttonInsertPacient"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin"
-            android:text="@string/insert_patient_button"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/buttonShowPacientList"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin"
-            android:text="@string/list_patients_button"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSexEdit" />
 
     <View
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/default_margin"
         android:layout_height="1dp"
-        android:layout_marginStart="@dimen/view_margin_list"
-        android:layout_marginEnd="@dimen/view_margin_list"
-        android:background="@color/line_list_background"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPatientButtons" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPatient"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPatientButtons"
-        tools:listitem="@layout/item_patient" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSaveEditPacient" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

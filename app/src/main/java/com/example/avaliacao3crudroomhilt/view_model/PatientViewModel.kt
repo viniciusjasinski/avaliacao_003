@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PatientViewModel @Inject constructor(
-    val repository: DatabaseRepository
+    private val repository: DatabaseRepository
 ) : ViewModel() {
 
     private val _patientList = MutableLiveData<List<PatientModel>>()
