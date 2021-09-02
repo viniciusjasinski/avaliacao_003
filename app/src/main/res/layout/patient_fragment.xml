@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainFragment">
+    tools:context=".view.PatientFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutName"
+        android:id="@+id/textInputLayoutPatientName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPatientName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/name_hint"/>
@@ -26,7 +27,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutAge"
+        android:id="@+id/textInputLayoutPatientAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
@@ -34,9 +35,10 @@
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutName">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientName">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextPatientAge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="@string/age_hint"/>
@@ -52,9 +54,10 @@
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutAge">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientAge">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPatientSex"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/sex_hint"/>
@@ -62,7 +65,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutPacient"
+        android:id="@+id/linearLayoutPatientButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +96,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPacient" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPatientButtons" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

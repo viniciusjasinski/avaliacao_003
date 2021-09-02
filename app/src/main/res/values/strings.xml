@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Avaliacao3CrudRoomHilt</string>
+    <string name="name_hint">Nome</string>
+    <string name="age_hint">Idade</string>
+    <string name="sex_hint">Sexo</string>
+    <string name="exclude_item">Excluir Item</string>
+    <string name="edit_item">Editar Item</string>
 </resources>

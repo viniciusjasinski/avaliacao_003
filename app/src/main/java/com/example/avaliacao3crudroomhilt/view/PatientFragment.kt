@@ -9,10 +9,10 @@ import com.example.avaliacao3crudroomhilt.view_model.PatientViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment(R.layout.patient_fragment) {
+class PatientFragment : Fragment(R.layout.patient_fragment) {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = PatientFragment()
     }
 
     private lateinit var viewModel: PatientViewModel
