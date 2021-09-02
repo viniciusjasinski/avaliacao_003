@@ -8,5 +8,7 @@ import javax.inject.Inject
 class PatientViewModel @Inject constructor(
 
 ) : ViewModel() {
-    // TODO: Implement the ViewModel
+
+
+
 }
