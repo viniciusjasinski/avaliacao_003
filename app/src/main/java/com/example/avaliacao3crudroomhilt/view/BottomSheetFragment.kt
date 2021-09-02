@@ -8,22 +8,31 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.avaliacao3crudroomhilt.view_model.BottomSheetViewModel
 import com.example.avaliacao3crudroomhilt.R
+import com.example.avaliacao3crudroomhilt.adapter.PatientAdapter
 import com.example.avaliacao3crudroomhilt.databinding.BottomSheetFragmentBinding
 import com.example.avaliacao3crudroomhilt.model.PatientModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BottomSheetFragment : BottomSheetDialogFragment() {
+class BottomSheetFragment() : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(patientId: Int) : BottomSheetFragment{
+        fun newInstance(patientId: Int): BottomSheetFragment {
             return BottomSheetFragment().apply {
                 val args = Bundle()
                 args.putInt("patient_id_key", patientId)
                 this.arguments = args
             }
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.bottom_sheet_fragment, container, false)
     }
 
     private lateinit var viewModel: BottomSheetViewModel
@@ -44,17 +53,27 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         viewModel = ViewModelProvider(this).get(BottomSheetViewModel::class.java)
 
         viewModel.getPatient.observe(viewLifecycleOwner, observePatientInfo)
-        if(patientId != null) {
+
+        if (patientId != null) {
             viewModel.getOnePatient(patientId)
+            saveEditPatient(patientId)
         }
+
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.bottom_sheet_fragment, container, false)
+    fun saveEditPatient(patientId: Int) {
+        binding.buttonSaveEditPacient.setOnClickListener {
+            val name = binding.editTextPatientNameEdit.text.toString()
+            val age = binding.editTextPatientAgeEdit.text.toString()
+            val sex = binding.editTextPatientSexEdit.text.toString()
+
+            if(name.isNotEmpty() && age.isNotEmpty() && sex.isNotEmpty()) {
+                val patient = PatientModel(patientId, name, age.toInt(), sex)
+                viewModel.updatePatient(patient)
+                this.dismiss()
+            }
+        }
     }
 
 }

@@ -58,7 +58,12 @@ class PatientDAOTest {
 
     @Test
     fun editPatientDatabase_should_return_true() {
+        val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
+        val patientExample2 = PatientModel(1, "Roberto", 51, "Masculino")
+        dao.insertIntoPatients(patientExample)
+        dao.updatePatient(patientExample.patient_id,patientExample2.patient_name, patientExample2.patient_age, patientExample2.patient_sex)
 
+        assertThat(dao.getAllPatients()).contains(patientExample2)
     }
 
 }

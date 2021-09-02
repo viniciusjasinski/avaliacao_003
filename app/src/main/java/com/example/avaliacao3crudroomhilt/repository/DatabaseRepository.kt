@@ -7,13 +7,13 @@ import javax.inject.Inject
 
 class DatabaseRepository @Inject constructor(
     val repository: PatientDAO
-){
+) {
 
     fun insertNewPatient(patientModel: PatientModel) {
         repository.insertIntoPatients(patientModel)
     }
 
-    fun getPatientsList() : List<PatientModel> {
+    fun getPatientsList(): List<PatientModel> {
         return repository.getAllPatients()
     }
 
@@ -21,8 +21,17 @@ class DatabaseRepository @Inject constructor(
         repository.deletePatient(patientModel)
     }
 
-    fun getSpecificPatient(patientId : Int) : PatientModel {
+    fun getSpecificPatient(patientId: Int): PatientModel {
         return repository.getPatient(patientId)
+    }
+
+    fun updatePatient(patientModel: PatientModel) {
+        repository.updatePatient(
+            patientModel.patient_id,
+            patientModel.patient_name,
+            patientModel.patient_age,
+            patientModel.patient_sex
+        )
     }
 
 }

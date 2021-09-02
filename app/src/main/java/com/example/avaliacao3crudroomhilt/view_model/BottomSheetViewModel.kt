@@ -19,4 +19,9 @@ class BottomSheetViewModel @Inject constructor(
     fun getOnePatient(patientId: Int) {
         _getPatient.value = repository.getSpecificPatient(patientId)
     }
+
+    fun updatePatient(patientModel: PatientModel) {
+        repository.updatePatient(patientModel)
+    }
+
 }

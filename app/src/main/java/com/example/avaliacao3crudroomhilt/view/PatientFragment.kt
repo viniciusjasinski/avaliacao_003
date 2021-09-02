@@ -86,6 +86,9 @@ class PatientFragment : Fragment(R.layout.patient_fragment), PatientClickableIte
     override fun clickEditIcon(patientModel: PatientModel) {
         val bottomSheet = BottomSheetFragment.newInstance(patientModel.patient_id)
         bottomSheet.show(parentFragmentManager, "edit_details_patient")
+//        bottomSheet.dialog?.setOnDismissListener {
+//            viewModel.fetchAllPatientsList()
+//        }
     }
 
 
