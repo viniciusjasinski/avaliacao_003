@@ -30,6 +30,4 @@ class SpecialtyViewModel @Inject constructor(
         fetchSpecialties()
     }
 
-
-
 }

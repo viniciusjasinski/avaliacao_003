@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.avaliacao3crudroomhilt.databinding.MainActivityBinding
+import com.example.avaliacao3crudroomhilt.view.DoctorFragment
 import com.example.avaliacao3crudroomhilt.view.PatientFragment
 import com.example.avaliacao3crudroomhilt.view.SpecialtyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -41,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.page_specialty -> {
                     changeFrag(SpecialtyFragment.newInstance(), "tag_specialty")
+                }
+                R.id.page_doctor -> {
+                    changeFrag(DoctorFragment.newInstance(), "tag_doctor")
                 }
             }
             true

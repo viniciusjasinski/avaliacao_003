@@ -9,4 +9,8 @@ data class SpecialtyModel(
     var specialty_id: Int = 0,
     val specialty_name: String
 
-)
+) {
+    override fun toString(): String {
+        return specialty_name
+    }
+}

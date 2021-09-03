@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2824074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_work_24.xml" value="0.2824074074074074" />
         <entry key="app/src/main/res/layout/bottom_sheet_fragment.xml" value="0.26721014492753625" />
+        <entry key="app/src/main/res/layout/doctor_fragment.xml" value="0.23921568627450981" />
         <entry key="app/src/main/res/layout/item_pacient.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/item_patient.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/item_specialty.xml" value="0.26721014492753625" />

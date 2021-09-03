@@ -2,6 +2,7 @@ package com.example.avaliacao3crudroomhilt.di
 
 import android.content.Context
 import com.example.avaliacao3crudroomhilt.database.AppDatabase
+import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
 import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
 import com.example.avaliacao3crudroomhilt.database.dao.SpecialtyDAO
 import com.example.avaliacao3crudroomhilt.repository.DatabaseRepository
@@ -26,7 +27,11 @@ class HiltModule {
     }
 
     @Provides
-    fun provideRepositoryPatient(patientDAO: PatientDAO, specialtyDAO: SpecialtyDAO) : DatabaseRepository = DatabaseRepository(patientDAO, specialtyDAO)
+    fun provideContextDaoDoctor(@ApplicationContext context: Context) : DoctorDAO {
+        return AppDatabase.getDatabase(context).doctorDAO()
+    }
 
+    @Provides
+    fun provideRepository(patientDAO: PatientDAO, specialtyDAO: SpecialtyDAO, doctorDAO: DoctorDAO) : DatabaseRepository = DatabaseRepository(patientDAO, specialtyDAO, doctorDAO)
 
 }

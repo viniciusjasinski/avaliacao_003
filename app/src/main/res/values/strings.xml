@@ -17,4 +17,5 @@
     <string name="specialty_hint">Especialidade</string>
     <string name="bottom_nav_patients">Pacientes</string>
     <string name="bottom_nav_specialty">Especialidades</string>
+    <string name="bottom_nav_doctor">Médicos</string>
 </resources>

@@ -1,15 +1,17 @@
 package com.example.avaliacao3crudroomhilt.repository
 
-import com.example.avaliacao3crudroomhilt.database.AppDatabase
+import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
 import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
 import com.example.avaliacao3crudroomhilt.database.dao.SpecialtyDAO
+import com.example.avaliacao3crudroomhilt.model.DoctorModel
 import com.example.avaliacao3crudroomhilt.model.PatientModel
 import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
 import javax.inject.Inject
 
 class DatabaseRepository @Inject constructor(
     val patientRepository: PatientDAO,
-    val specialtyRepository: SpecialtyDAO
+    val specialtyRepository: SpecialtyDAO,
+    val doctorRepository: DoctorDAO
 ) {
 
     /////////////////////// Patient ////////////////////////
@@ -55,11 +57,37 @@ class DatabaseRepository @Inject constructor(
         return specialtyRepository.getSpecialty(specialtyId)
     }
 
-    fun updateSpecialty(SpecialtyModel: SpecialtyModel) {
+    fun updateSpecialty(specialtyModel: SpecialtyModel) {
         specialtyRepository.updateSpecialty(
-            SpecialtyModel.specialty_id,
-            SpecialtyModel.specialty_name
+            specialtyModel.specialty_id,
+            specialtyModel.specialty_name
         )
     }
+
+    ////////////////////// Doctor //////////////////////////
+    fun insertNewDoctor(doctorModel: DoctorModel) {
+        doctorRepository.insertIntoDoctor(doctorModel)
+    }
+
+    fun getDoctorsList(): List<DoctorModel> {
+        return doctorRepository.getAllDoctors()
+    }
+
+    fun deleteDoctor(doctorModel: DoctorModel) {
+        doctorRepository.deleteDoctor(doctorModel)
+    }
+
+    fun getSpecificDoctor(doctorId: Int): DoctorModel {
+        return doctorRepository.getDoctor(doctorId)
+    }
+
+    fun updateDoctor(doctorModel: DoctorModel) {
+        doctorRepository.updateDoctor(
+            doctorModel.doctor_id,
+            doctorModel.doctor_name,
+            doctorModel.doctor_specialtyFK
+        )
+    }
+
 
 }

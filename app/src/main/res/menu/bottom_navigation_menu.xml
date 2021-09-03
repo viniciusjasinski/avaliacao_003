@@ -10,4 +10,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_work_24"
         android:title="@string/bottom_nav_specialty"/>
+    <item
+        android:id="@+id/page_doctor"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_medication_24"
+        android:title="@string/bottom_nav_doctor"/>
 </menu>
