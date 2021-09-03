@@ -10,9 +10,9 @@ import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
 import javax.inject.Inject
 
 class DatabaseRepository @Inject constructor(
-    val patientRepository: PatientDAO,
-    val specialtyRepository: SpecialtyDAO,
-    val doctorRepository: DoctorDAO
+    private val patientRepository: PatientDAO,
+    private val specialtyRepository: SpecialtyDAO,
+    private val doctorRepository: DoctorDAO
 ) {
 
     /////////////////////// Patient ////////////////////////

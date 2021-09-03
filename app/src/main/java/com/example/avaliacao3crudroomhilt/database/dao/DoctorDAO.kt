@@ -11,18 +11,18 @@ interface DoctorDAO {
     @Insert
     fun insertIntoDoctor(doctorModel: DoctorModel)
 
-    @Insert
-    fun insertIntoSpecialty(specialtyModel: SpecialtyModel)
+//    @Insert
+//    fun insertIntoSpecialty(specialtyModel: SpecialtyModel)
 
-    @Insert
-    fun insertDoctorWithSpecialty(doctorWithSpecialty: DoctorWithSpecialty) {
-        doctorWithSpecialty.specialty?.let {
-            insertIntoSpecialty(it)
-        }
-        doctorWithSpecialty.doctor?.let {
-            insertIntoDoctor(it)
-        }
-    }
+//    @Insert
+//    fun insertDoctorWithSpecialty(doctorWithSpecialty: DoctorWithSpecialty) {
+////        doctorWithSpecialty.specialty?.let {
+////            insertIntoSpecialty(it)
+////        }
+//        doctorWithSpecialty.doctor?.let {
+//            insertIntoDoctor(it)
+//        }
+//    }
 
     @Query("SELECT * FROM DoctorModel")
     fun getAllDoctors() : List<DoctorWithSpecialty>
