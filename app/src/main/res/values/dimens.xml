@@ -4,4 +4,5 @@
     <dimen name="smaller_margin">12dp</dimen>
     <dimen name="default_font">18sp</dimen>
     <dimen name="view_margin_list">60dp</dimen>
+    <dimen name="specialty_margin">35dp</dimen>
 </resources>

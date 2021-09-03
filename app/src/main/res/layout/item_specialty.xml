@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textViewSpecialtyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/specialty_margin"
+        android:layout_marginStart="80dp"
+        android:textSize="@dimen/default_font"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textViewSpecialtytName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/smaller_margin"
+        android:textSize="@dimen/default_font"
+        app:layout_constraintStart_toStartOf="@+id/textViewSpecialtyId"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpecialtyId"
+        tools:text="Cardiologista" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/smaller_margin"
+        android:layout_marginStart="@dimen/view_margin_list"
+        android:layout_marginEnd="@dimen/view_margin_list"
+        android:background="@color/line_list_background"
+        app:layout_constraintTop_toBottomOf="@+id/edit_action_button" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/trash_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/smaller_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:contentDescription="@string/exclude_item"
+        app:backgroundTint="@color/white"
+        app:fabSize="mini"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/smaller_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:contentDescription="@string/edit_item"
+        app:fabSize="mini"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trash_action_button"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
