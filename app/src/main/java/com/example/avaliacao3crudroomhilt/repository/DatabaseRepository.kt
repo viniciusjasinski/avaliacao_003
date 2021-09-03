@@ -4,6 +4,7 @@ import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
 import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
 import com.example.avaliacao3crudroomhilt.database.dao.SpecialtyDAO
 import com.example.avaliacao3crudroomhilt.model.DoctorModel
+import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
 import com.example.avaliacao3crudroomhilt.model.PatientModel
 import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
 import javax.inject.Inject
@@ -69,7 +70,7 @@ class DatabaseRepository @Inject constructor(
         doctorRepository.insertIntoDoctor(doctorModel)
     }
 
-    fun getDoctorsList(): List<DoctorModel> {
+    fun getDoctorsList(): List<DoctorWithSpecialty> {
         return doctorRepository.getAllDoctors()
     }
 
@@ -77,16 +78,12 @@ class DatabaseRepository @Inject constructor(
         doctorRepository.deleteDoctor(doctorModel)
     }
 
-    fun getSpecificDoctor(doctorId: Int): DoctorModel {
+    fun getSpecificDoctor(doctorId: Int): DoctorWithSpecialty {
         return doctorRepository.getDoctor(doctorId)
     }
 
     fun updateDoctor(doctorModel: DoctorModel) {
-        doctorRepository.updateDoctor(
-            doctorModel.doctor_id,
-            doctorModel.doctor_name,
-            doctorModel.doctor_specialtyFK
-        )
+        doctorRepository.updateDoctor(doctorModel)
     }
 
 
