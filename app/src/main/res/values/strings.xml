@@ -14,4 +14,7 @@
     <string name="insert_patient_button">Inserir</string>
     <string name="list_patients_button">Listar</string>
     <string name="save_edit_button">Salvar</string>
+    <string name="specialty_hint">Especialidade</string>
+    <string name="bottom_nav_patients">Pacientes</string>
+    <string name="bottom_nav_specialty">Especialidades</string>
 </resources>
