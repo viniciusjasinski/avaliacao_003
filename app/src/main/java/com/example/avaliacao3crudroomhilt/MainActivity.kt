@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         bottomNav()
-        changeFrag(PatientFragment.newInstance())
+        changeFrag(PatientFragment.newInstance(),"tag_patient")
 
     }
 
-    private fun changeFrag(fragment: Fragment) {
+    private fun changeFrag(fragment: Fragment, tag: String) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
+            .replace(R.id.container, fragment, tag)
             .commitNow()
     }
 
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.page_patients -> {
-                    changeFrag(PatientFragment.newInstance())
+                    changeFrag(PatientFragment.newInstance(), "tag_patient")
                 }
                 R.id.page_specialty -> {
-                    changeFrag(SpecialtyFragment.newInstance())
+                    changeFrag(SpecialtyFragment.newInstance(), "tag_specialty")
                 }
             }
             true

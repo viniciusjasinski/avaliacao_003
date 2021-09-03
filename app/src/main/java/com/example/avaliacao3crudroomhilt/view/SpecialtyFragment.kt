@@ -79,8 +79,12 @@ class SpecialtyFragment : Fragment(R.layout.specialty_fragment), SpecialtyClicka
 
     override fun clickEditIcon(specialtyModel: SpecialtyModel) {
         val bottomSheet = BottomSheetFragment.newSpecialtyInstance(specialtyModel.specialty_id)
+
         bottomSheet.show(parentFragmentManager, "edit_details_specialty")
     }
 
+    fun refreshAdapter() {
+        viewModel.fetchSpecialties()
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.example.avaliacao3crudroomhilt.view
 
+import android.content.DialogInterface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -97,7 +98,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
     }
 
 
-    fun saveEditPatient(patientId: Int) {
+    private fun saveEditPatient(patientId: Int) {
         binding.buttonSaveEdit.setOnClickListener {
             val name = binding.editTextNameEdit.text.toString()
             val age = binding.editTextPatientAgeEdit.text.toString()
@@ -120,6 +121,16 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
                 this.dismiss()
             }
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        parentFragmentManager.findFragmentByTag("tag_patient")?.apply {
+            (this as? PatientFragment)?.refreshAdapter()
+        }
+        parentFragmentManager.findFragmentByTag("tag_specialty")?.apply {
+            (this as? SpecialtyFragment)?.refreshAdapter()
+        }
+
     }
 
 }

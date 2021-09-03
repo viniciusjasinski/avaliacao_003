@@ -16,7 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PatientFragment : Fragment(R.layout.patient_fragment), PatientClickableItem {
+class PatientFragment : Fragment(R.layout.patient_fragment), PatientClickableItem{
 
     companion object {
         fun newInstance() = PatientFragment()
@@ -86,10 +86,11 @@ class PatientFragment : Fragment(R.layout.patient_fragment), PatientClickableIte
     override fun clickEditIcon(patientModel: PatientModel) {
         val bottomSheet = BottomSheetFragment.newPatientInstance(patientModel.patient_id)
         bottomSheet.show(parentFragmentManager, "edit_details_patient")
-//        bottomSheet.dialog?.setOnDismissListener {
-//            viewModel.fetchAllPatientsList()
-//        }
+
     }
 
+    fun refreshAdapter() {
+        viewModel.fetchAllPatientsList()
+    }
 
 }
