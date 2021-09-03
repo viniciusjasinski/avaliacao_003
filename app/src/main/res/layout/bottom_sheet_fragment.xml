@@ -8,7 +8,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPatientIdEdit"
+        android:id="@+id/textInputLayoutIdEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
@@ -21,7 +21,7 @@
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPatientIdEdit"
+            android:id="@+id/editTextIdEdit"
             android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPatientNameEdit"
+        android:id="@+id/textInputLayoutNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
@@ -39,12 +39,12 @@
         android:layout_marginEnd="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientIdEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutIdEdit"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPatientNameEdit"
+            android:id="@+id/editTextNameEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/name_hint"/>
@@ -60,7 +60,7 @@
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPatientNameEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNameEdit"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeWidthFocused="1dp">
 
@@ -94,7 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonSaveEditPacient"
+        android:id="@+id/buttonSaveEdit"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,6 +109,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_height="1dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSaveEditPacient" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSaveEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

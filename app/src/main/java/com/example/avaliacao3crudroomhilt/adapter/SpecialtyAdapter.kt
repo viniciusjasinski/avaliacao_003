@@ -9,8 +9,9 @@ import com.example.avaliacao3crudroomhilt.R
 import com.example.avaliacao3crudroomhilt.databinding.ItemSpecialtyBinding
 import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
 import com.example.avaliacao3crudroomhilt.utils.SpecialtyClickableItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class SpecialtyAdapter (val clickableItem: SpecialtyClickableItem) : RecyclerView.Adapter<ItemSpecialtyViewHolder>() {
+class SpecialtyAdapter (private val clickableItem: SpecialtyClickableItem) : RecyclerView.Adapter<ItemSpecialtyViewHolder>() {
 
     private val listOfSpecialties: MutableList<SpecialtyModel> = mutableListOf()
 
@@ -22,6 +23,12 @@ class SpecialtyAdapter (val clickableItem: SpecialtyClickableItem) : RecyclerVie
     override fun onBindViewHolder(holder: ItemSpecialtyViewHolder, position: Int) {
         listOfSpecialties[position].apply {
             holder.bind(this)
+            holder.itemView.findViewById<FloatingActionButton>(R.id.trash_action_button).setOnClickListener {
+                clickableItem.clickTrashIcon(this)
+            }
+            holder.itemView.findViewById<FloatingActionButton>(R.id.edit_action_button).setOnClickListener {
+                clickableItem.clickEditIcon(this)
+            }
         }
     }
 

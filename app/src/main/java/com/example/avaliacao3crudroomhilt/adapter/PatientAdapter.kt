@@ -13,7 +13,7 @@ import com.example.avaliacao3crudroomhilt.utils.PatientClickableItem
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class PatientAdapter(val clickableItem: PatientClickableItem) : RecyclerView.Adapter<ItemPatientViewHolder>() {
+class PatientAdapter(private val clickableItem: PatientClickableItem) : RecyclerView.Adapter<ItemPatientViewHolder>() {
 
     private val listOfPatients: MutableList<PatientModel> = mutableListOf()
 

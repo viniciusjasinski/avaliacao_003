@@ -25,6 +25,11 @@ class SpecialtyViewModel @Inject constructor(
         _specialtyList.value = repository.getSpecialtiesList()
     }
 
+    fun deleteSpecialty(specialtyModel: SpecialtyModel) {
+        repository.deleteSpecialty(specialtyModel)
+        fetchSpecialties()
+    }
+
 
 
 }
