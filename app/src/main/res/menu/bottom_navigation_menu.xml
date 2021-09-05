@@ -15,4 +15,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_medication_24"
         android:title="@string/bottom_nav_doctor"/>
+    <item
+        android:id="@+id/page_schedule"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_schedule_24"
+        android:title="@string/bottom_nav_schedule"/>
 </menu>

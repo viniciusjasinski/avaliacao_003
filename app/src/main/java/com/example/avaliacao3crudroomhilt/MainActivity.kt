@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.avaliacao3crudroomhilt.databinding.MainActivityBinding
 import com.example.avaliacao3crudroomhilt.view.DoctorFragment
 import com.example.avaliacao3crudroomhilt.view.PatientFragment
+import com.example.avaliacao3crudroomhilt.view.ScheduleFragment
 import com.example.avaliacao3crudroomhilt.view.SpecialtyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.page_doctor -> {
                     changeFrag(DoctorFragment.newInstance(), "tag_doctor")
+                }
+                R.id.page_schedule -> {
+                    changeFrag(ScheduleFragment.newInstance(), "tag_schedule")
                 }
             }
             true
