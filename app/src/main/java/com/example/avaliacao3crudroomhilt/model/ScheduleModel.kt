@@ -18,18 +18,17 @@ data class ScheduleModel(
 data class SchedulePatientDoctor(
 
     @Embedded
-    val scheduleModelDoctor: ScheduleModel,
+    val scheduleModel: ScheduleModel?,
     @Relation(
         parentColumn = "doctorIdFK",
         entityColumn = "doctor_id"
     )
-    val doctorModel: DoctorModel,
+    val doctorModel: DoctorModel?,
 
-    val scheduleModelPatient: ScheduleModel,
     @Relation(
-        parentColumn = "parentIdFK",
+        parentColumn = "patientIdFK",
         entityColumn = "patient_id"
     )
-    val patientModel: PatientModel
+    val patientModel: PatientModel?
 
 )
