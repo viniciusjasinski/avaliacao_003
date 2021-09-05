@@ -2,17 +2,16 @@ package com.example.avaliacao3crudroomhilt.repository
 
 import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
 import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
+import com.example.avaliacao3crudroomhilt.database.dao.ScheduleDAO
 import com.example.avaliacao3crudroomhilt.database.dao.SpecialtyDAO
-import com.example.avaliacao3crudroomhilt.model.DoctorModel
-import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
-import com.example.avaliacao3crudroomhilt.model.PatientModel
-import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
+import com.example.avaliacao3crudroomhilt.model.*
 import javax.inject.Inject
 
 class DatabaseRepository @Inject constructor(
     private val patientRepository: PatientDAO,
     private val specialtyRepository: SpecialtyDAO,
-    private val doctorRepository: DoctorDAO
+    private val doctorRepository: DoctorDAO,
+    private val scheduleRepository: ScheduleDAO
 ) {
 
     /////////////////////// Patient ////////////////////////
@@ -81,5 +80,25 @@ class DatabaseRepository @Inject constructor(
         doctorRepository.updateDoctor(doctorModel)
     }
 
+    ////////////////////// Schedule //////////////////////////
+    fun insertNewSchedule(scheduleModel: ScheduleModel) {
+        scheduleRepository.insertSchedule(scheduleModel)
+    }
+
+    fun getScheduleList(): List<SchedulePatientDoctor> {
+        return scheduleRepository.getAllSchedules()
+    }
+
+    fun deleteSchedule(scheduleModel: ScheduleModel) {
+        scheduleRepository.deleteSchedule(scheduleModel)
+    }
+
+    fun getSpecificSchedule(scheduleId: Int): SchedulePatientDoctor {
+        return scheduleRepository.getSchedule(scheduleId)
+    }
+
+    fun updateSchedule(scheduleModel: ScheduleModel) {
+        scheduleRepository.updateSchedule(scheduleModel)
+    }
 
 }

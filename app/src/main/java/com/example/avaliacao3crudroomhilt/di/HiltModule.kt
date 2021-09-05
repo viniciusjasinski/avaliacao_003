@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.avaliacao3crudroomhilt.database.AppDatabase
 import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
 import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
+import com.example.avaliacao3crudroomhilt.database.dao.ScheduleDAO
 import com.example.avaliacao3crudroomhilt.database.dao.SpecialtyDAO
 import com.example.avaliacao3crudroomhilt.repository.DatabaseRepository
 import dagger.Module
@@ -17,21 +18,31 @@ import dagger.hilt.components.SingletonComponent
 class HiltModule {
 
     @Provides
-    fun provideContextDaoPatient(@ApplicationContext context: Context) : PatientDAO {
+    fun provideContextDaoPatient(@ApplicationContext context: Context): PatientDAO {
         return AppDatabase.getDatabase(context).patientDAO()
     }
 
     @Provides
-    fun provideContextDaoSpecialty(@ApplicationContext context: Context) : SpecialtyDAO {
+    fun provideContextDaoSpecialty(@ApplicationContext context: Context): SpecialtyDAO {
         return AppDatabase.getDatabase(context).specialtyDAO()
     }
 
     @Provides
-    fun provideContextDaoDoctor(@ApplicationContext context: Context) : DoctorDAO {
+    fun provideContextDaoDoctor(@ApplicationContext context: Context): DoctorDAO {
         return AppDatabase.getDatabase(context).doctorDAO()
     }
 
     @Provides
-    fun provideRepository(patientDAO: PatientDAO, specialtyDAO: SpecialtyDAO, doctorDAO: DoctorDAO) : DatabaseRepository = DatabaseRepository(patientDAO, specialtyDAO, doctorDAO)
+    fun provideContextDaoSchedule(@ApplicationContext context: Context): ScheduleDAO {
+        return AppDatabase.getDatabase(context).scheduleDAO()
+    }
+
+    @Provides
+    fun provideRepository(
+        patientDAO: PatientDAO,
+        specialtyDAO: SpecialtyDAO,
+        doctorDAO: DoctorDAO,
+        scheduleDAO: ScheduleDAO
+    ): DatabaseRepository = DatabaseRepository(patientDAO, specialtyDAO, doctorDAO, scheduleDAO)
 
 }

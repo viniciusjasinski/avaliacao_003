@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.avaliacao3crudroomhilt.R
 import com.example.avaliacao3crudroomhilt.view_model.ScheduleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
 
     companion object {

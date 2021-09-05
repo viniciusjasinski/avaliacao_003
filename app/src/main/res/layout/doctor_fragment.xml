@@ -41,6 +41,7 @@
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteSpecialty"
+            android:hint="@string/doctor_hint_specialty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:completionThreshold="1"

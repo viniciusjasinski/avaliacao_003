@@ -18,5 +18,8 @@
     <string name="bottom_nav_patients">Pacientes</string>
     <string name="bottom_nav_specialty">Especialidades</string>
     <string name="bottom_nav_doctor">Médicos</string>
-    <string name="bottom_nav_schedule">Agendar</string>
+    <string name="bottom_nav_schedule">Agendamento</string>
+    <string name="doctor_hint_specialty">Especialidade</string>
+    <string name="patient_hint">Paciente</string>
+    <string name="doctor_hint">Médico</string>
 </resources>
