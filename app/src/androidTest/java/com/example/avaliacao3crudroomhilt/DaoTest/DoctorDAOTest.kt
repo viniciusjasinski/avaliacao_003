@@ -41,36 +41,32 @@ class DoctorDAOTest {
 
     @Test
     fun insertDoctor_should_return_true() {
-        val specialty = SpecialtyModel(specialty_id = 1, specialty_name = "Ortopedista")
         val doutorJaime = DoctorModel(doctor_id = 1, doctor_name = "Jaime Stapassoli", doctor_specialtyFK = 1)
 
-        val doctorWithSpecialty = DoctorWithSpecialty(doutorJaime, specialty)
-        dao.insertDoctorWithSpecialty(doctorWithSpecialty)
-        assertThat(dao.getAllDoctors()).contains(doctorWithSpecialty)
+        dao.insertIntoDoctor(doutorJaime)
+
+        assertThat(dao.getDoctor(1).doctor).isEqualTo(doutorJaime)
     }
 
     @Test
     fun deleteDoctor_should_return_true() {
-        val specialty = SpecialtyModel(specialty_id = 1, specialty_name = "Ortopedista")
         val doutorJaime = DoctorModel(doctor_id = 1, doctor_name = "Jaime Stapassoli", doctor_specialtyFK = 1)
 
-        val doctorWithSpecialty = DoctorWithSpecialty(doutorJaime, specialty)
-        dao.insertDoctorWithSpecialty(doctorWithSpecialty)
+        dao.insertIntoDoctor(doutorJaime)
         dao.deleteDoctor(doutorJaime)
-        assertThat(dao.getAllDoctors()).doesNotContain(doctorWithSpecialty)
+        assertThat(dao.getDoctor(1)).isNull()
     }
 
     @Test
     fun editDoctor_should_return_true() {
-        val specialty = SpecialtyModel(specialty_id = 1, specialty_name = "Ortopedista")
         val doutorJaime = DoctorModel(doctor_id = 1, doctor_name = "Jaime Stapassoli", doctor_specialtyFK = 1)
-        val doctorWithSpecialty = DoctorWithSpecialty(doutorJaime, specialty)
 
-        dao.insertDoctorWithSpecialty(doctorWithSpecialty)
-        dao.updateDoctor(DoctorModel(doctor_id = 1, doctor_name = "Botao Stapassoli", doctor_specialtyFK = 2))
+        dao.insertIntoDoctor(doutorJaime)
+        dao.updateDoctor(DoctorModel(doctor_id = 1, doctor_name = "Botao Stapassoli", doctor_specialtyFK = 1))
 
-        assertThat(dao.getAllDoctors()).doesNotContain(doctorWithSpecialty)
+        assertThat(dao.getDoctor(1)).isNotEqualTo(doutorJaime)
 
     }
+
 
 }

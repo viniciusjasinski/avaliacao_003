@@ -33,12 +33,7 @@ class DatabaseRepository @Inject constructor(
     }
 
     fun updatePatient(patientModel: PatientModel) {
-        patientRepository.updatePatient(
-            patientModel.patient_id,
-            patientModel.patient_name,
-            patientModel.patient_age,
-            patientModel.patient_sex
-        )
+        patientRepository.updatePatient(patientModel)
     }
 
     ///////////////////// Specialty /////////////////////////

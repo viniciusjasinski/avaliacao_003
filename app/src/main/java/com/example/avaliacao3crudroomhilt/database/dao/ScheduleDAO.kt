@@ -1,9 +1,6 @@
 package com.example.avaliacao3crudroomhilt.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.avaliacao3crudroomhilt.model.ScheduleModel
 import com.example.avaliacao3crudroomhilt.model.SchedulePatientDoctor
 
@@ -16,7 +13,13 @@ interface ScheduleDAO {
     @Query("SELECT * FROM ScheduleModel")
     fun getAllSchedules(): List<SchedulePatientDoctor>
 
+    @Query("SELECT * FROM ScheduleModel WHERE schedule_id = :scheduleId")
+    fun getSchedule(scheduleId : Int): SchedulePatientDoctor
+
     @Delete
     fun deleteSchedule(scheduleModel: ScheduleModel)
+
+    @Update
+    fun updateSchedule(scheduleModel: ScheduleModel)
 
 }

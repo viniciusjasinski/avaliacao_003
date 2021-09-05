@@ -9,7 +9,7 @@ import androidx.room.Relation
 data class ScheduleModel(
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    var schedule_id: Int = 0,
     val doctorIdFK: Int,
     val patientIdFK: Int
 
