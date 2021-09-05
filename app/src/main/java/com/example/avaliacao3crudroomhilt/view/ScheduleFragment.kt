@@ -1,11 +1,11 @@
-package com.example.avaliacao3crudroomhilt
+package com.example.avaliacao3crudroomhilt.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.example.avaliacao3crudroomhilt.R
+import com.example.avaliacao3crudroomhilt.view_model.ScheduleViewModel
 
 class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
 
