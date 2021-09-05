@@ -96,7 +96,7 @@ class DoctorFragment : Fragment(R.layout.doctor_fragment), DoctorClickableItem {
     override fun clickTrashIcon(doctorWithSpecialty: DoctorWithSpecialty) {
         MaterialAlertDialogBuilder(requireContext()).apply {
             setTitle(context.getString(R.string.dialog_delete_patient))
-            setMessage("Você deseja deletar o paciente ${doctorWithSpecialty.doctor!!.doctor_name} " +
+            setMessage("Você deseja deletar o médico ${doctorWithSpecialty.doctor!!.doctor_name} " +
                     "que possui a especialidade ${doctorWithSpecialty.specialty!!.specialty_name}?")
             setPositiveButton(context.getString(R.string.dialog_delete)) { dialog, which ->
                 viewModel.deleteDoctor(doctorWithSpecialty.doctor)
@@ -109,8 +109,12 @@ class DoctorFragment : Fragment(R.layout.doctor_fragment), DoctorClickableItem {
     }
 
     override fun clickEditIcon(doctorWithSpecialty: DoctorWithSpecialty) {
-//        val bottomSheet = BottomSheetFragment.newPatientInstance(patientModel.patient_id)
-//        bottomSheet.show(parentFragmentManager, "edit_details_patient")
+        val bottomSheet = BottomSheetFragment.newDoctorInstance(doctorWithSpecialty.doctor!!.doctor_id)
+        bottomSheet.show(parentFragmentManager, "edit_details_patient")
+    }
+
+    fun refreshAdapter() {
+        viewModel.fetchDoctors()
     }
 
 }
