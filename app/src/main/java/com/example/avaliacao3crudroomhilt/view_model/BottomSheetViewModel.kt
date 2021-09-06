@@ -3,10 +3,7 @@ package com.example.avaliacao3crudroomhilt.view_model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.avaliacao3crudroomhilt.model.DoctorModel
-import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
-import com.example.avaliacao3crudroomhilt.model.PatientModel
-import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
+import com.example.avaliacao3crudroomhilt.model.*
 import com.example.avaliacao3crudroomhilt.repository.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -27,6 +24,18 @@ class BottomSheetViewModel @Inject constructor(
 
     private val _specialtyList = MutableLiveData<List<SpecialtyModel>>()
     val specialtyList: LiveData<List<SpecialtyModel>> = _specialtyList
+
+    private val _schedule = MutableLiveData<SchedulePatientDoctor>()
+    val schedule: LiveData<SchedulePatientDoctor> = _schedule
+
+
+    private val _doctorsList = MutableLiveData<List<DoctorWithSpecialty>>()
+    val doctorsList: LiveData<List<DoctorWithSpecialty>> = _doctorsList
+
+    private val _patientsList = MutableLiveData<List<PatientModel>>()
+    val patientsList: LiveData<List<PatientModel>> = _patientsList
+
+
     fun getOnePatient(patientId: Int) {
         _patient.value = repository.getSpecificPatient(patientId)
     }
@@ -55,5 +64,20 @@ class BottomSheetViewModel @Inject constructor(
        repository.updateDoctor(doctorModel)
     }
 
+    fun getOneSchedule(scheduleId: Int) {
+        _schedule.value = repository.getSpecificSchedule(scheduleId)
+    }
+
+    fun getAllDoctors() {
+        _doctorsList.value = repository.getDoctorsList()
+    }
+
+    fun getAllPatients() {
+        _patientsList.value = repository.getPatientsList()
+    }
+
+    fun updateSchedule(scheduleModel: ScheduleModel) {
+        repository.updateSchedule(scheduleModel)
+    }
 
 }

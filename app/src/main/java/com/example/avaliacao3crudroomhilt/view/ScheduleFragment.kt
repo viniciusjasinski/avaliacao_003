@@ -14,11 +14,13 @@ import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
 import com.example.avaliacao3crudroomhilt.model.PatientModel
 import com.example.avaliacao3crudroomhilt.model.ScheduleModel
 import com.example.avaliacao3crudroomhilt.model.SchedulePatientDoctor
+import com.example.avaliacao3crudroomhilt.utils.ScheduleClickableItem
 import com.example.avaliacao3crudroomhilt.view_model.ScheduleViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
+class ScheduleFragment : Fragment(R.layout.schedule_fragment), ScheduleClickableItem {
 
     companion object {
         fun newInstance() = ScheduleFragment()
@@ -30,7 +32,7 @@ class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
     private var selectedPatient: PatientModel? = null
     private var listOfDoctorsWithSpecialty: List<DoctorWithSpecialty>? = null
     private var selectedDoctorWithSpecialty: DoctorWithSpecialty? = null
-    private var adapter = ScheduleAdapter()
+    private var adapter = ScheduleAdapter(this)
 
     private val observeSchedules = Observer<List<SchedulePatientDoctor>> { scheduleList ->
         adapter.refresh(scheduleList)
@@ -104,6 +106,30 @@ class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
         }
 
 
+    }
+
+    override fun clickTrashIcon(schedulePatientDoctor: SchedulePatientDoctor) {
+        MaterialAlertDialogBuilder(requireContext()).apply {
+            setTitle(context.getString(R.string.dialog_delete_schedule))
+            setMessage("Você deseja deletar o agendamendo do médico ${schedulePatientDoctor.doctorModel!!.doctor_name} " +
+                    "com o paciente ${schedulePatientDoctor.patientModel!!.patient_name}?")
+            setPositiveButton(context.getString(R.string.dialog_delete)) { dialog, which ->
+                viewModel.deleteSchedule(schedulePatientDoctor.scheduleModel!!)
+                dialog.dismiss()
+            }
+            setNeutralButton(context.getString(R.string.dialog_cancel)) { dialog, which ->
+                dialog.cancel()
+            }
+        }.show()
+    }
+
+    override fun clickEditIcon(schedulePatientDoctor: SchedulePatientDoctor) {
+        val bottomSheet = BottomSheetFragment.newScheduleInstance(schedulePatientDoctor.scheduleModel!!.schedule_id)
+        bottomSheet.show(parentFragmentManager, "edit_details_schedule")
+    }
+
+    fun refreshAdapter() {
+        viewModel.fetchAllSchedules()
     }
 
 }

@@ -65,7 +65,7 @@ class SpecialtyFragment : Fragment(R.layout.specialty_fragment), SpecialtyClicka
 
     override fun clickTrashIcon(specialtyModel: SpecialtyModel) {
         MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(context.getString(R.string.dialog_delete_patient))
+            setTitle(context.getString(R.string.dialog_delete_specialty))
             setMessage("Você deseja deletar a especialidade ${specialtyModel.specialty_name}?")
             setPositiveButton(context.getString(R.string.dialog_delete)) { dialog, which ->
                 viewModel.deleteSpecialty(specialtyModel)

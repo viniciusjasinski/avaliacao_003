@@ -54,7 +54,7 @@ class ItemDoctorViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     @SuppressLint("SetTextI18n")
     fun bind(doctorWithSpecialty: DoctorWithSpecialty) {
-        binding.textViewDoctorId.text = "Id do médico: ${doctorWithSpecialty.doctor!!.doctor_id}"
+        binding.textViewDoctorId.text = "Id do médico(a): ${doctorWithSpecialty.doctor!!.doctor_id}"
         binding.textViewDoctorName.text = "Nome: ${doctorWithSpecialty.doctor?.doctor_name}"
         binding.textViewDoctorSpecialty.text = "Especialidade: ${doctorWithSpecialty.specialty?.specialty_name}"
     }

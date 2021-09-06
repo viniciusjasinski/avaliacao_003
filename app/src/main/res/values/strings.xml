@@ -6,6 +6,9 @@
     <string name="exclude_item">Excluir Item</string>
     <string name="edit_item">Editar Item</string>
     <string name="dialog_delete_patient">Deletar Paciente</string>
+    <string name="dialog_delete_specialty">Deletar Especialidade</string>
+    <string name="dialog_delete_doctor">Deletar Médico</string>
+    <string name="dialog_delete_schedule">Deletar Agendamento</string>
     <string name="dialog_delete">Deletar</string>
     <string name="dialog_cancel">Cancelar</string>
     <string name="dialog_edit_patient">Editar Paciente</string>
