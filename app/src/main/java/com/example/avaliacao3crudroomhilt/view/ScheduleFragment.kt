@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
 import com.example.avaliacao3crudroomhilt.R
+import com.example.avaliacao3crudroomhilt.adapter.ScheduleAdapter
 import com.example.avaliacao3crudroomhilt.databinding.ScheduleFragmentBinding
 import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
 import com.example.avaliacao3crudroomhilt.model.PatientModel
@@ -27,6 +28,7 @@ class ScheduleFragment : Fragment(R.layout.schedule_fragment) {
     private lateinit var selectedPatient: PatientModel
     private var listOfDoctorsWithSpecialty: List<DoctorWithSpecialty>? = null
     private lateinit var selectedDoctorWithSpecialty: DoctorWithSpecialty
+    private var adapter = ScheduleAdapter()
 
     private val observeSchedules = Observer<List<SchedulePatientDoctor>> {
 
