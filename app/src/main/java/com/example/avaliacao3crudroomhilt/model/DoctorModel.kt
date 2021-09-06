@@ -21,4 +21,8 @@ data class DoctorWithSpecialty(
         entityColumn = "specialty_id"
     )
     val specialty: SpecialtyModel?
-)
+) {
+    override fun toString(): String {
+        return "${doctor!!.doctor_name}, ${specialty!!.specialty_name}"
+    }
+}

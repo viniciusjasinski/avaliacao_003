@@ -10,4 +10,8 @@ data class PatientModel(
     val patient_name: String,
     val patient_age: Int,
     val patient_sex: String
-)
+) {
+    override fun toString(): String {
+        return "$patient_name, $patient_age, $patient_sex"
+    }
+}
