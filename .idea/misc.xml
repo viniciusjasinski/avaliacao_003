@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/item_doctor.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/item_pacient.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/item_patient.xml" value="0.26721014492753625" />
+        <entry key="app/src/main/res/layout/item_schedule.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/item_specialty.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/main_activity.xml" value="0.35460004520351507" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.25" />

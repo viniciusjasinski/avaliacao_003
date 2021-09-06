@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutInputDoctor">
 
         <Button
-            android:id="@+id/buttonInsertDoctor"
+            android:id="@+id/buttonInsertSchedule"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:text="@string/insert_patient_button" />
 
         <Button
-            android:id="@+id/buttonShowDoctorList"
+            android:id="@+id/buttonShowScheduleList"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

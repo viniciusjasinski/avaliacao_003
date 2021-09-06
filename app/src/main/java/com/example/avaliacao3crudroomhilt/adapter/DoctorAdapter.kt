@@ -52,10 +52,11 @@ class ItemDoctorViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     private var binding: ItemDoctorBinding = ItemDoctorBinding.bind(itemView)
 
+    @SuppressLint("SetTextI18n")
     fun bind(doctorWithSpecialty: DoctorWithSpecialty) {
-        binding.textViewDoctorId.text = doctorWithSpecialty.doctor?.doctor_id.toString()
-        binding.textViewDoctorName.text = doctorWithSpecialty.doctor?.doctor_name
-        binding.textViewDoctorSpecialty.text = doctorWithSpecialty.specialty?.specialty_name
+        binding.textViewDoctorId.text = "Id do médico: ${doctorWithSpecialty.doctor!!.doctor_id}"
+        binding.textViewDoctorName.text = "Nome: ${doctorWithSpecialty.doctor?.doctor_name}"
+        binding.textViewDoctorSpecialty.text = "Especialidade: ${doctorWithSpecialty.specialty?.specialty_name}"
     }
 
 }
