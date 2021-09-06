@@ -22,4 +22,12 @@ interface ScheduleDAO {
     @Update
     fun updateSchedule(scheduleModel: ScheduleModel)
 
+    @Transaction
+    @Query("SELECT * FROM ScheduleModel, PatientModel WHERE patientIdFK = patient_id AND patient_sex LIKE '%' || :sex || '%'")
+    fun filterBySex(sex: String): List<SchedulePatientDoctor>
+
+    @Transaction
+    @Query("SELECT * FROM ScheduleModel, DoctorModel, SpecialtyModel WHERE doctorIdFK = doctor_id AND doctor_specialtyFK = specialty_id AND specialty_name LIKE '%' || :specialty || '%'")
+    fun filterBySpecialty(specialty: String): List<SchedulePatientDoctor>
+
 }

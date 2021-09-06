@@ -7,6 +7,50 @@
     tools:context=".view.DoctorFragment">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutScheduleFilterSpecialty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeWidthFocused="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextFilterSpecialty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/specialty_filter"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutFilterSex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutScheduleFilterSpecialty"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeWidthFocused="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextFilterSex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/sex_filter"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutInputPatient"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
@@ -16,7 +60,7 @@
         android:layout_marginEnd="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutFilterSex">
 
         <AutoCompleteTextView
             android:hint="@string/patient_hint"
@@ -27,6 +71,7 @@
             tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutInputDoctor"
@@ -49,6 +94,7 @@
             tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayoutDoctorButtons"

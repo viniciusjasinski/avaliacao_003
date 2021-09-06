@@ -25,4 +25,6 @@
     <string name="doctor_hint_specialty">Especialidade</string>
     <string name="patient_hint">Paciente</string>
     <string name="doctor_hint">Médico</string>
+    <string name="specialty_filter">Filtro Especialidade</string>
+    <string name="sex_filter">Filtro Gênero</string>
 </resources>

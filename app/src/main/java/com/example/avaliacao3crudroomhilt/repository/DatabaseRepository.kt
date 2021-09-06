@@ -101,4 +101,12 @@ class DatabaseRepository @Inject constructor(
         scheduleRepository.updateSchedule(scheduleModel)
     }
 
+    fun filterBySex(sexToFilter: String): List<SchedulePatientDoctor> {
+        return scheduleRepository.filterBySex(sexToFilter)
+    }
+
+    fun filterBySpecialty(specialtyToFilter: String): List<SchedulePatientDoctor> {
+        return scheduleRepository.filterBySpecialty(specialtyToFilter)
+    }
+
 }

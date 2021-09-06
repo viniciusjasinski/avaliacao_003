@@ -47,4 +47,12 @@ class ScheduleViewModel @Inject constructor(
         _allDoctors.value = repository.getDoctorsList()
     }
 
+    fun fetchfilterBySex(sexToFilter: String) {
+        _allSchedules.value = repository.filterBySex(sexToFilter)
+    }
+
+    fun fetchfilterBySpecialty(specialtyToFilter: String) {
+        _allSchedules.value = repository.filterBySpecialty(specialtyToFilter)
+    }
+
 }
