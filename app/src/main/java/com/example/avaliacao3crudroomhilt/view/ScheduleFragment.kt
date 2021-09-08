@@ -142,8 +142,12 @@ class ScheduleFragment : Fragment(R.layout.schedule_fragment), ScheduleClickable
     override fun clickTrashIcon(schedulePatientDoctor: SchedulePatientDoctor) {
         MaterialAlertDialogBuilder(requireContext()).apply {
             setTitle(context.getString(R.string.dialog_delete_schedule))
-            setMessage("Você deseja deletar o agendamendo do médico ${schedulePatientDoctor.doctorModel!!.doctor_name} " +
-                    "com o paciente ${schedulePatientDoctor.patientModel!!.patient_name}?")
+            if(schedulePatientDoctor.doctorModel != null && schedulePatientDoctor.patientModel != null) {
+                setMessage(
+                    "Você deseja deletar o agendamendo do médico ${schedulePatientDoctor.doctorModel.doctor_name} " +
+                            "com o paciente ${schedulePatientDoctor.patientModel.patient_name}?"
+                )
+            }
             setPositiveButton(context.getString(R.string.dialog_delete)) { dialog, which ->
                 viewModel.deleteSchedule(schedulePatientDoctor.scheduleModel!!)
                 dialog.dismiss()
@@ -155,8 +159,11 @@ class ScheduleFragment : Fragment(R.layout.schedule_fragment), ScheduleClickable
     }
 
     override fun clickEditIcon(schedulePatientDoctor: SchedulePatientDoctor) {
-        val bottomSheet = BottomSheetFragment.newScheduleInstance(schedulePatientDoctor.scheduleModel!!.schedule_id)
-        bottomSheet.show(parentFragmentManager, "edit_details_schedule")
+        if(schedulePatientDoctor.scheduleModel != null) {
+            val bottomSheet =
+                BottomSheetFragment.newScheduleInstance(schedulePatientDoctor.scheduleModel!!.schedule_id)
+            bottomSheet.show(parentFragmentManager, "edit_details_schedule")
+        }
     }
 
     fun refreshAdapter() {

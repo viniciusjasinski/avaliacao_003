@@ -1,5 +1,6 @@
 package com.example.avaliacao3crudroomhilt.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,10 +48,17 @@ class ItemScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private var binding: ItemScheduleBinding = ItemScheduleBinding.bind(itemView)
 
+    @SuppressLint("SetTextI18n")
     fun bind(schedulePatientDoctor: SchedulePatientDoctor) {
         binding.textViewScheduleId.text = schedulePatientDoctor.scheduleModel!!.schedule_id.toString()
-        binding.textViewDoctorSchedule.text = "Médico(a): ${schedulePatientDoctor.doctorModel!!.doctor_name}"
-        binding.textViewPatientSchedule.text = "Paciente: ${schedulePatientDoctor.patientModel!!.patient_name}"
+        if(schedulePatientDoctor.doctorModel != null) {
+            binding.textViewDoctorSchedule.text =
+                "Médico(a): ${schedulePatientDoctor.doctorModel!!.doctor_name}"
+        }
+        if(schedulePatientDoctor.patientModel != null) {
+            binding.textViewPatientSchedule.text =
+                "Paciente: ${schedulePatientDoctor.patientModel!!.patient_name}"
+        }
     }
 
 }
