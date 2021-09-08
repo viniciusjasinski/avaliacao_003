@@ -1,7 +1,6 @@
 package com.example.avaliacao3crudroomhilt.DaoTest
 
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
@@ -41,6 +40,18 @@ class PatientDAOTest {
 
         val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
         dao.insertIntoPatients(patientExample)
+        val getPatient = dao.getPatient(1)
+
+        assertThat(getPatient).isEqualTo(patientExample)
+    }
+
+    @Test
+    fun getAllPatientsDatabase_should_return_true() {
+
+        val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
+        val patientExample2 = PatientModel(2, "Gilberto", 51, "Masculino")
+        dao.insertIntoPatients(patientExample)
+        dao.insertIntoPatients(patientExample2)
         val getAllPatients = dao.getAllPatients()
 
         assertThat(getAllPatients).contains(patientExample)
@@ -59,11 +70,10 @@ class PatientDAOTest {
     @Test
     fun editPatientDatabase_should_return_true() {
         val patientExample = PatientModel(1, "Alberto", 51, "Masculino")
-        val patientExample2 = PatientModel(1, "Roberto", 51, "Masculino")
         dao.insertIntoPatients(patientExample)
-        dao.updatePatient(patientExample2)
+        dao.updatePatient(PatientModel(1, "Gilberto", 51, "Masculino"))
 
-        assertThat(dao.getAllPatients()).contains(patientExample2)
+        assertThat(dao.getAllPatients()).doesNotContain(patientExample)
     }
 
 }

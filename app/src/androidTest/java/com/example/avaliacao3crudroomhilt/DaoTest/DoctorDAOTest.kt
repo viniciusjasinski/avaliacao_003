@@ -6,10 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.example.avaliacao3crudroomhilt.database.AppDatabase
 import com.example.avaliacao3crudroomhilt.database.dao.DoctorDAO
-import com.example.avaliacao3crudroomhilt.database.dao.PatientDAO
 import com.example.avaliacao3crudroomhilt.model.DoctorModel
-import com.example.avaliacao3crudroomhilt.model.DoctorWithSpecialty
-import com.example.avaliacao3crudroomhilt.model.SpecialtyModel
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
@@ -49,11 +46,23 @@ class DoctorDAOTest {
     }
 
     @Test
+    fun getAllDoctors_should_return_true() {
+        val doutorJaime = DoctorModel(doctor_id = 1, doctor_name = "Jaime Stapassoli", doctor_specialtyFK = 1)
+        val doutorBotao = DoctorModel(doctor_id = 2, doctor_name = "Botao Stapassoli", doctor_specialtyFK = 1)
+
+        dao.insertIntoDoctor(doutorJaime)
+        dao.insertIntoDoctor(doutorBotao)
+
+        assertThat(dao.getAllDoctors().size).isEqualTo(2)
+    }
+
+    @Test
     fun deleteDoctor_should_return_true() {
         val doutorJaime = DoctorModel(doctor_id = 1, doctor_name = "Jaime Stapassoli", doctor_specialtyFK = 1)
 
         dao.insertIntoDoctor(doutorJaime)
         dao.deleteDoctor(doutorJaime)
+
         assertThat(dao.getDoctor(1)).isNull()
     }
 

@@ -53,6 +53,16 @@ class ScheduleDAOTest {
     }
 
     @Test
+    fun getAllSchedules_should_return_true() {
+        val schedule = ScheduleModel(schedule_id = 1,doctorIdFK = 1, patientIdFK = 1)
+        val schedule2 = ScheduleModel(schedule_id = 2,doctorIdFK = 1, patientIdFK = 1)
+        dao.insertSchedule(schedule)
+        dao.insertSchedule(schedule2)
+
+        assertThat(dao.getAllSchedules().size).isEqualTo(2)
+    }
+
+    @Test
     fun deleteSchedule_should_return_true() {
         val schedule = ScheduleModel(schedule_id = 1,doctorIdFK = 1, patientIdFK = 1)
         dao.insertSchedule(schedule)

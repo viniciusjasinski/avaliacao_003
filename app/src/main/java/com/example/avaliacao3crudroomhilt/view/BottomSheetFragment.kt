@@ -44,6 +44,7 @@ class BottomSheetFragment() : BottomSheetDialogFragment() {
                 this.arguments = args
             }
         }
+
         fun newScheduleInstance(idSchedule: Int): BottomSheetFragment {
             return BottomSheetFragment().apply {
                 val args = Bundle()
